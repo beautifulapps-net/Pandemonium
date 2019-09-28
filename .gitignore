@@ -328,3 +328,5 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+/Pandemonium/Resources/Sounds
+/Pandemonium/Resources/Fonts
