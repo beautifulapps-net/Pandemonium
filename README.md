@@ -8,10 +8,10 @@ Add files by dragging from Windows Explorer &amp; dropping onto the main file li
 Drag &amp; drop is currently the only way to add files to the playlist.
 
 ### Keyboard shortcuts
-Play/Pause  - Space, Play/pause media keys
+Space, Play/pause media keys  - Toggle Play/Pause
 
-Plus        - Increment volume
+Plus                          - Increment volume
 
-Minus       - Decrement volume
+Minus                         - Decrement volume
 
-Delete      - Remove item from playlist
+Delete                        - Remove item from playlist
