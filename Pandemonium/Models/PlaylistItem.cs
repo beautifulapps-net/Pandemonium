@@ -8,7 +8,7 @@ using System.ComponentModel;
 
 namespace Pandemonium.Models
 {
-    public class PlaylistItem: INotifyPropertyChanged
+    public class PlaylistItem: INotifyPropertyChanged, IDisposable
     {
         public PlaylistItem(string soundFile)
         {
@@ -82,5 +82,44 @@ namespace Pandemonium.Models
         public string SoundFile { get => SoundPlayer.SoundFile; }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+
+        #region IDisposable Support
+        private bool disposedValue = false; // To detect redundant calls
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    // TODO: dispose managed state (managed objects).
+                }
+
+                // free unmanaged resources (unmanaged objects) and override a finalizer below.
+                SoundPlayer.State = SoundPlayer.PlayState.Stopped;
+                // set large fields to null.
+
+                disposedValue = true;
+            }
+        }
+
+        // override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
+        ~PlaylistItem()
+        {
+            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+            Dispose(false);
+        }
+
+        // This code added to correctly implement the disposable pattern.
+        void IDisposable.Dispose()
+        {
+            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+            Dispose(true);
+            // uncomment the following line if the finalizer is overridden above.
+            GC.SuppressFinalize(this);
+        }
+        #endregion
+
     }
 }

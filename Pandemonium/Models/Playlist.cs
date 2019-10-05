@@ -12,7 +12,14 @@ namespace Pandemonium.Models
     public class Playlist:ObservableCollection<PlaylistItem>
     {
         public Playlist()
-        { }
+        {
+            base.CollectionChanged += Playlist_CollectionChanged;
+        }
+
+        private void Playlist_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            
+        }
 
         public void Add(string soundFile)
         {
@@ -38,6 +45,23 @@ namespace Pandemonium.Models
             {
                 Remove(item);
             }
+        }
+
+        private new void Remove(PlaylistItem item)
+        {
+            if (item != null) item.State = SoundPlayer.PlayState.Stopped;
+
+            base.Remove(item);
+        }
+
+        private new void RemoveItem(int index)
+        {
+            base.RemoveItem(index);
+        }
+
+        private new void RemoveAt(int index)
+        {
+            base.RemoveAt(index);
         }
 
     }
